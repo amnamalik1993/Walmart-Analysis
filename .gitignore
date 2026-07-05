@@ -1,0 +1,16 @@
+# you shouldn't commit these into source control
+# these are the default directory names, adjust/add to fit your needs
+target/
+dbt_packages/
+logs/
+<<<<<<< HEAD
+=======
+dbt_internal_packages/
+>>>>>>> 0632e66b29aa29759f56ccef37288e27ea414a23
+
+# Default .gitignore content added by dbt Cloud# you shouldn't commit these into source control
+# these are the default directory names, adjust/add to fit your needs
+target/
+dbt_packages/
+logs/
+# end dbt Cloud content

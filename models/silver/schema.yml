@@ -1,0 +1,14 @@
+models:
+  - name: silver
+    description: "Silver DBT model"
+sources:
+    - name: source
+      database: SCD2_DB
+      schema: BRONZE
+      tables:
+        - name: WORK_PRODUCT_COPY
+    - name: silver
+      database: SCD2_DB
+      schema: SILVER
+      tables:
+        - name: WORK_PRODUCT_TRANSFORM
