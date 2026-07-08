@@ -5,6 +5,8 @@ models:
     description: "A table for bronze layer in dbt model"
   - name: silver
     description: "A table for silver layer in dbt model"
+  - name: gold
+    description: " A view for gold layer in dbt model"
 sources:
   - name: source
     database: WALMART_DB
@@ -26,3 +28,4 @@ sources:
     schema: SILVER
     tables:
       - name: WALMART_FACT_TABLE
+

@@ -2,6 +2,7 @@
 
 {{
     config(
+        target_database='WALMART_DB',
         target_schema='SNAPSHOTS',
         unique_key='SNAPSHOT_KEY',
         strategy='check',
