@@ -2,7 +2,7 @@
  "transient":true,
  "alias":'walmart_store',
  "pre_hook": macros_copy_csv('WALMART_STORE_RAW'),
- "schema": 'SILVER'
+ "schema": 'BRONZE'
 
 })}}
 

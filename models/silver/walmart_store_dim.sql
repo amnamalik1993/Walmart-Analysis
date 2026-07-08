@@ -1,7 +1,10 @@
 {{
 config
 ({
-"materialized":'table',
+"materialized":'incremental',
+"incremental_strategy": 'merge',
+"unique_key": 'STORE_ID',
+"merge_exclude_columns" : ['INSERT_DATE'],
 "schema":"silver"
 })
 }}
@@ -21,6 +24,7 @@ JOIN
     {{ ref('walmart_department') }} AS D
 ON 
     S.STORE_ID = D.STORE_ID
+
 )
 
 SELECT 

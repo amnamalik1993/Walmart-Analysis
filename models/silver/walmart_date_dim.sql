@@ -1,14 +1,17 @@
 {{
 config
 ({
-"materialized":'table',
+"materialized":'incremental',
+"incremental_strategy": 'merge',
+"unique_key": 'DATE_ID',
+"merge_exclude_columns" : ['INSERT_DATE'],
 "schema":"silver"
 })
 }}
 
 WITH WALMART_DATE_DIM AS (
 SELECT  
-    ROW_NUMBER() OVER (ORDER BY DATE) AS DATE_ID,
+    TO_NUMBER(TO_CHAR(DATE, 'YYYYMMDD')) AS DATE_ID,
     DATE AS STORE_DATE,
     ISHOLIDAY,
     CURRENT_TIMESTAMP() AS INSERT_DATE,

@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: bronze
+    description: "A table for bronze layer in dbt model"
+  - name: silver
+    description: "A table for silver layer in dbt model"
+sources:
+  - name: source
+    database: WALMART_DB
+    schema: BRONZE
+    tables:
+      - name: WALMART_STORE_RAW
+  - name: source
+    database: WALMART_DB
+    schema: BRONZE
+    tables:
+      - name: WALMART_DEPARTMENT_RAW
+  - name: source
+    database: WALMART_DB
+    schema: BRONZE
+    tables:
+      - name: WALMART_FACT_RAW
+  - name: silver
+    database: WALMART_DB
+    schema: SILVER
+    tables:
+      - name: WALMART_FACT_TABLE

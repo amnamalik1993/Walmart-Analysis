@@ -1,4 +1,4 @@
-{% macro macros_copy_csv(table_nm) %}
+{% macro fact_copy_csv(table_nm) %}
 
     delete from {{ var("rawhist_db") }}.{{ var("wrk_schema") }}.{{ table_nm }};
 
@@ -10,17 +10,16 @@ FROM
 SELECT
     $1 AS STORE,
     $2 AS DATE,
-    $3 AS WEEKLY_SALES,
-    $4 AS TEMPERATURE,
-    $5 AS FUEL_PRICE,
-    $6 AS MARKDOWN1,
-    $7 AS MARKDOWN2,
-    $8 AS MARKDOWN3,
-    $9 AS MARKDOWN4,
-    $10 AS MARKDOWN5,
-    $11 AS CPI
-    $12 AS UNEMPLOYMENT
-    $13 AS ISHOLIDAY
+    $3 AS TEMPERATURE,
+    $4 AS FUEL_PRICE,
+    $5 AS MARKDOWN1,
+    $6 AS MARKDOWN2,
+    $7 AS MARKDOWN3,
+    $8 AS MARKDOWN4,
+    $9 AS MARKDOWN5,
+    $10 AS CPI,
+    $11 AS UNEMPLOYMENT,
+    $12 AS ISHOLIDAY,
     CURRENT_TIMESTAMP() AS INSERT_DTS,
     CURRENT_TIMESTAMP() AS UPDATE_DTS,
     METADATA$FILENAME AS SOURCE_FILE_NAME,
