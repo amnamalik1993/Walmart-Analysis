@@ -2,7 +2,7 @@
 config
 ({
 "materialized":'incremental',
-"incremental_strategy": 'merge',
+"incremental_strategy": 'delete+insert',
 "unique_key": 'STORE_ID',
 "merge_exclude_columns" : ['INSERT_DATE'],
 "schema":"silver"
@@ -16,8 +16,8 @@ SELECT
     D.DEPT_ID,
     S.TYPE AS STORE_TYPE,
     S.SIZE AS STORE_SIZE,
-    CURRENT_TIMESTAMP() AS INSERT_DATE,
-    CURRENT_TIMESTAMP() AS UPDATE_DATE
+    S.INSERT_DTS AS INSERT_DATE,
+    S.UPDATE_DTS AS UPDATE_DATE
 FROM
     {{ ref('walmart_store') }} AS S
 JOIN 

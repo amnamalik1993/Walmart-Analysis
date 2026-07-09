@@ -19,9 +19,6 @@ SELECT
 FROM {{source('source','WALMART_STORE_RAW')}}
 
 )
-
- 
-
 SELECT *
 
 FROM transform
